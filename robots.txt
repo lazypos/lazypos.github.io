@@ -1,0 +1,3 @@
+Sitemap: http://dagouge.com/sitemap.xml
+User-agent: *
+Allow: /
