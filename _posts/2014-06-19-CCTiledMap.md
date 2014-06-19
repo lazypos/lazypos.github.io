@@ -17,7 +17,7 @@ tmx地图的内部坐标是从左上角开始的， tiled可以有多层，使�
 
 我们经常看到网上两个坐标转换的函数：
 
-{% highlight c++ %}
+{% highlight cpp %}
 
 CCPoint GameMap::tileCoordForPosition(CCPoint position)
 {
@@ -25,6 +25,7 @@ CCPoint GameMap::tileCoordForPosition(CCPoint position)
     int y = (((this->getMapSize().height) * this->getTileSize().height) - position.y) / this->getTileSize().height;
     return ccp(x, y);
 }
+
 {% endhighlight %}
 
 这个是cocos2dx转tiled的坐标（上面说的tileAt（1，22）的参数1，22），原理如下：
