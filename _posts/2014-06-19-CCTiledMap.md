@@ -17,7 +17,7 @@ tmx地图的内部坐标是从左上角开始的， tiled可以有多层，使�
 
 我们经常看到网上两个坐标转换的函数：
 
-{% highlight cpp %}
+{% highlight javascript %}
 
 CCPoint GameMap::tileCoordForPosition(CCPoint position)
 {
