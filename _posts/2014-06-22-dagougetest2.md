@@ -4,7 +4,8 @@ title: 第二篇测试文章
 ---
 代码测试
 -------
-{% highlight cpp %}
+
+{% highlight text %}
 
 CCPoint tileCoordForPosition(CCPoint position)
 { 
@@ -14,6 +15,7 @@ CCPoint tileCoordForPosition(CCPoint position)
 }
 
 {% endhighlight %}
+
 
 图片测试
 -------
