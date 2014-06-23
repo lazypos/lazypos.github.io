@@ -2,6 +2,8 @@
 layout: post
 title: 功能测试文章
 ---
+
+
 代码测试
 -------
 
@@ -21,7 +23,14 @@ CCPoint tileCoordForPosition(CCPoint position)
 -------
 ![map]({{site:url}}/images/tiledmap.png)
 
-标签和超链接测试
+其他文本测试
 -------
-你好，[这里](http://www.dagouge.com)将成为超链接，`这里`成为标签。
+你好，[这里](http://www.dagouge.com)将成为超链接，`这里`成为标签。字体**加粗**，字体*倾斜*，
+#标题
+##标题
+###标题
+####标题
+#####标题
+######标题
+
 
