@@ -25,13 +25,13 @@ CCPoint tileCoordForPosition(CCPoint position)
 
 其他文本测试
 -------
-你好，[这里](http://www.dagouge.com)将成为超链接，`这里`成为标签。字体**加粗**，字体*倾斜*，~~字体被删除~~，注释[^1]  
+你好，[这里](http://www.dagouge.com)将成为超链接，`这里`成为标签。字体**加粗**，字体*倾斜*，~~字体被删除~~，注释 [^1]  
 
 [^1]:这里是注释内容
 
-两个空格是换行[^2]  
+两个空格是换行 [^2]    
 
-[^1]:必须是英文空格  
+[^2]:必须是英文空格  
 
 代码段
 
@@ -41,6 +41,7 @@ blocks, except that they’re not indented and instead rely on
 a start and end fence lines to delimit the code block.
 ```
 
+列表测试
 
 名字 | 年龄 | 身高 | 其他备注
 :------:|:------:|:-----:|:-----:
