@@ -29,7 +29,7 @@ CCPoint tileCoordForPosition(CCPoint position)
 
 [^1]:这里是注释内容
 
-两个空格是换行 [^2]    
+两个空格是换行 [^2]  
 
 [^2]:必须是英文空格  
 
