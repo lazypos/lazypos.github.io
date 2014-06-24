@@ -39,21 +39,11 @@ blocks, except that they’re not indented and instead rely on
 a start and end fence lines to delimit the code block.
 ```
 
-# 标题
 
-## 标题
-
-### 标题
-
-#### 标题
-
-##### 标题
-
-
-名字 | 年龄 | 身高
-:------:|:------:|:-----:
-lazypos|35|172
-doslin|23|175
+名字 | 年龄 | 身高 | 其他备注
+:------:|:------:|:-----:|:-----:
+lazypos|35|172|牛逼厉害完美掉渣天
+doslin|23|175|渣渣
 
 
 
