@@ -1,7 +1,7 @@
-—--
+---
 layout: post
 title: sql查询语句的关键语句点
-—-
+---
 
 
 **1、distinct (去重)**
