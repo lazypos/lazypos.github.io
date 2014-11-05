@@ -10,12 +10,15 @@ title: memcached 常用命令
 `<data block>`
 
 参数说明：
-|<command name>	 | set/get/add/replace|
-|<key>	|查找关键字|
-|<flags> |客户机使用它存储关于键值对的额外信息|
-|<exptime> | 该数据的存活时间，0表示永远|
-|<bytes> | 存储字节数|
-|<data block> | 存储的数据块（可直接理解为key-value结构中的value）|
+
+| 字段 | 说明 |
+|:------:|:------:|
+| \<command name>	 | set/get/add/replace|
+| \<key>	|查找关键字|
+| \<flags> |客户机使用它存储关于键值对的额外信息|
+| \<exptime> | 该数据的存活时间，0表示永远|
+| \<bytes> | 存储字节数|
+| \<data block> | 存储的数据块（可直接理解为key-value结构中的value）|
 
 
 基本命令简介：
