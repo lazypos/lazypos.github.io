@@ -5,7 +5,8 @@ title: memcached 常用命令
 
 <br>
 命令格式：
----------
+-------------
+
 `<command name> <key> <flags> <exptime> <bytes>`<br>
 `<data block>`
 
