@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-gb">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>CCTMXTiledMap 使用说明</title>
+	<meta name="author" content="大狗哥" />
+	<link rel="stylesheet" href="/css/syntax.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="/css/screen.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="/css/tablet.css" type="text/css" media="screen and (min-width:651px) and (max-width: 1024px), screen and (min-device-width: 768px) and (max-device-width: 1024px)" />
+	<link rel="stylesheet" href="/css/mobile.css" type="text/css" media="handheld, screen and (max-width: 650px), screen and (max-device-width: 480px)" />
+</head>
+<body>
+	<div class="site">
+		<div class="title"><big><a href="/">大狗哥的狗窝</a></big></div>
+		<div id="post">
+	<h1>CCTMXTiledMap 使用说明</h1>
+	<p class="meta">19 Jun 2014</p>
+	<p><code>CCTMXTiledMap</code>可以导入由Tiled创建的地图文件格式。 tmx地图的内部坐标是从左上角开始的， tiled可以有多层，使用<code>layerNamed()</code>函数获取某个层的<code>CCTMXLayer</code>指针.</p>
+
+<p>比如下图有一个hill层 
+<code>CCTMXTiledMap* pMap = CCTMXTiledMap::create("test.tmx”);</code> 
+<code>CCTMXLayer* hillLayer = pMap-&gt;layerNamed("hill”);</code></p>
+
+<p>然后在Tiled编辑器里可以看到每块图都有一个序号，比如下图是（1，22），其实这里面每一块图都是一个<code>CCSprite</code>，我们可以用 <code>CCSprite* sp = hillLayer-&gt;tileAt(1, 22)</code>; 来获取到这块地图对应的精灵。 *这里要注意这个精灵的锚点默认是左下角的，如果调用 <code>sp-&gt;getPosition()</code>; 得到的点是该图块左下角的点，而一般的CCSprite创建后是锚点是在图片中央。</p>
+
+<p>可以调用<code>CCTMXTiledMap</code>的<code>getMapSize()</code>获取整个地图的大小，<code>getTiledSize()</code>来获得每一个小块的尺寸。</p>
+
+<p>我们经常看到网上两个坐标转换的函数</p>
+
+<div class="highlight"><pre><code class="cpp"><span class="n">CCPoint</span> <span class="nf">tileCoordForPosition</span><span class="p">(</span><span class="n">CCPoint</span> <span class="n">position</span><span class="p">)</span>
+<span class="p">{</span> 
+	<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">/</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">getTileSize</span><span class="p">().</span><span class="n">width</span><span class="p">;</span> 
+	<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">getMapSize</span><span class="p">().</span><span class="n">height</span><span class="p">)</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">getTileSize</span><span class="p">().</span><span class="n">height</span><span class="p">)</span> <span class="o">-</span> <span class="n">position</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">getTileSize</span><span class="p">().</span><span class="n">height</span><span class="p">;</span> 
+	<span class="k">return</span> <span class="n">ccp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span> 
+<span class="p">}</span></code></pre></div>
+
+<p>这个是cocos2dx转tiled的坐标,上面说的tileAt（1，22）的参数1，22, 原理如下： 假设每块小地图的长度宽度都是32，如果参数是（120，200）那么，相当于小地图的X轴的 4 块， Y轴的 6 块。因为tiled地图从第0块算起的，所以X轴是3。 而Y轴是从上往下的，所以要(总块数-6)，才是Y轴的坐标。</p>
+
+<p><img src="http://dagouge.com/images/tiledmap.png" alt="map" /></p>
+
+
+
+</div>
+
+
+
+<div id="related">
+  <h2>其它文章</h2>
+  <ul class="posts">
+    
+      <li><span>22 Jun 2014</span> <span class="seperator">--</span> <a href="/2014/06/22/dagougetest2/">功能测试文章</a></li>
+    
+      <li><span>14 Jun 2014</span> <span class="seperator">--</span> <a href="/2014/06/14/dogremove1/">狗窝搬家记</a></li>
+    
+      <li><span>23 Aug 2013</span> <span class="seperator">--</span> <a href="/2013/08/23/custom-uiview-animations-with-vector-graphics/">Custom UIView Animations with Vector Graphics</a></li>
+    
+  </ul>
+</div>
+
+
+
+<div class="comments">
+	<h3>Comments</h3>
+	<noscript>Please enable JavaScript to view the comments</noscript>
+	<div id="disqus_thread"></div>
+</div>
+<script type="text/javascript">
+    var disqus_shortname = 'dagouge';
+    var disqus_identifier = '/2014/06/19/cctil-e-dsdmap12';
+    var disqus_url = 'http://dagouge.com/2014/06/19/cctil-e-dsdmap12/';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+		<div class="footer">
+			<div class="contact">
+                <div style="display: none"> <a href="http://info.flagcounter.com/lIbm"><img alt="Flag Counter" src="http://s05.flagcounter.com/count/lIbm/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_12/viewers_0/labels_0/pageviews_1/flags_1/" border="0" /></a>
+                </div>
+				<p><big></br>
+                    Powered by <a href="http://jekyllrb.com">Jekyll</a> and <a href="https://pages.github.com">Github Pages</a> Copyright @2003-2015 <a href="/">dagouge.com</a> Corporation, All Rights Reserved
+                </big></p>
+			</div>
+		</div>
+	</div>
+</body>
+<html>
