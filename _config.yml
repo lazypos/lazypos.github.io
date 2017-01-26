@@ -1,5 +1,0 @@
-url: http://dagouge.com
-markdown: kramdown
-permalink: pretty
-pygments: true
-exclude: ['Rakefile.rb', 'CNAME', 'README.markdown']
